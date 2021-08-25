@@ -1,0 +1,30 @@
+<div class="center-content">
+  <mat-card class="example-card">
+    <div class="cart-title">
+      <mat-card-title>Đăng nhập</mat-card-title>
+      <mat-card-subtitle class="card-subtitle">Trang quản trị</mat-card-subtitle>
+    </div>
+    <form novalidate (ngSubmit)="onSubmit()">
+      <mat-card-content [formGroup]="LoginForm">
+        <mat-form-field class="example-full-width">
+          <mat-label>Tên đăng nhập</mat-label>
+          <input type="text" matInput placeholder="Email" formControlName="username">
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+        <div class="col alert alert-danger" role="alert" *ngIf="LoginForm.controls.username?.hasError('required') && LoginForm.controls.username?.touched">
+          Bạn phải nhập tên tài khoản
+        </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Mật khẩu</mat-label>
+          <input type="password" matInput placeholder="Password" formControlName="password">
+          <mat-icon matSuffix>vpn_key</mat-icon>
+        </mat-form-field>
+        <div class="col alert alert-danger" role="alert" *ngIf="LoginForm.controls.password?.hasError('required') && LoginForm.controls.password?.touched">
+          Bạn phải nhập mật khẩu
+        </div>
+        <button [disabled]="LoginForm.invalid" type="submit" mat-button color="primary">Đăng nhập</button>
+      </mat-card-content>
+      <mat-spinner [diameter]="30" mode="indeterminate" *ngIf="loading" class="spinner" ></mat-spinner>
+    </form>
+  </mat-card>
+</div>
