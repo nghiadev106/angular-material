@@ -15,10 +15,16 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { NavService } from '../core/services/nav.service';
+import { DataService } from '../core/services/data.service';
+import { AuthenService } from '../core/services/authen.service';
+import { NotificationService } from '../core/services/notification.service';
+import { UtilityService } from '../core/services/utility.service';
+import { MatBadgeModule } from '@angular/material/badge';
+
 
 @NgModule({
   declarations: [
-    AdminComponent, HeaderComponent, FooterComponent,SidebarComponent
+    AdminComponent, HeaderComponent, FooterComponent, SidebarComponent
   ],
   imports: [
     CommonModule,
@@ -30,9 +36,14 @@ import { NavService } from '../core/services/nav.service';
     MatListModule,
     MatSidenavModule,
     MatButtonModule,
+    MatBadgeModule,
     AdminRoutingModule
-  ],providers:[
-    NavService
+  ], providers: [
+    NavService,
+    DataService,
+    AuthenService,
+    NotificationService,
+    UtilityService
   ]
 })
 export class AdminModule { }

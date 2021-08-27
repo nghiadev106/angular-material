@@ -11,7 +11,6 @@ const adminRoutes: Routes = [
     children: [
       //localhost:4200/admin
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
-      //localhost:4200/admin/home
       {
         path: "dashboard",
         loadChildren: () =>

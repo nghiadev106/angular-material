@@ -35,9 +35,9 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.navService.currentUrl.subscribe((url: string) => {
-      if (this.item.route && url) {
+      if (this.item.URL && url) {
         // console.log(`Checking '/${this.item.route}' against '${url}'`);
-        this.expanded = url.indexOf(`/${this.item.route}`) === 0;
+        this.expanded = url.indexOf(`/${this.item.URL}`) === 0;
         this.ariaExpanded = this.expanded;
         // console.log(`${this.item.route} is expanded: ${this.expanded}`);
       }
@@ -45,11 +45,11 @@ export class SidebarComponent implements OnInit {
   }
 
   onItemSelected(item: NavItem) {
-    if (!item.children || !item.children.length) {
-      this.router.navigate([item.route]);
+    if (!item.ChildFunctions || !item.ChildFunctions.length) {
+      this.router.navigate([item.URL]);
       this.navService.closeNav();
     }
-    if (item.children && item.children.length) {
+    if (item.ChildFunctions && item.ChildFunctions.length) {
       this.expanded = !this.expanded;
     }
   }
